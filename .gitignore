@@ -1,0 +1,36 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Claude Code
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+*.egg-info/
+dist/
+build/
+.mypy_cache/
+.ruff_cache/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data directories (keep structure, ignore contents)
+chroma_db/*
+!chroma_db/.gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Scripts (data generation, not needed for deployment)
+scripts/
+
+# OS
+.DS_Store
+Thumbs.db
