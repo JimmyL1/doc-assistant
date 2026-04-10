@@ -26,7 +26,7 @@ def parse_image(file_path: str | Path) -> list[Document]:
         image_b64 = base64.standard_b64encode(f.read()).decode("utf-8")
 
     # Use Claude Vision to extract a text description suitable for RAG indexing
-    llm = ChatAnthropic(model=settings.llm_model, max_tokens=1024)
+    llm = ChatAnthropic(model=settings.llm_model, api_key=settings.anthropic_api_key, max_tokens=1024)
     message = HumanMessage(content=[
         {
             "type": "image",
