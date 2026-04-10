@@ -22,9 +22,7 @@ build/
 .coverage
 htmlcov/
 
-# Data directories (keep structure, ignore contents)
 chroma_db/*
-!chroma_db/.gitkeep
 
 # Scripts (data generation, not needed for deployment)
 scripts/

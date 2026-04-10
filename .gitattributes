@@ -10,3 +10,8 @@
 *.gif binary
 *.webp binary
 *.sqlite3 binary
+*.xlsx binary
+*.xls binary
+*.pptx binary
+*.msg binary
+*.eml binary
