@@ -21,7 +21,6 @@ class Settings(BaseSettings):
     # Ingestion
     chunk_size: int = 1000
     chunk_overlap: int = 200
-    upload_dir: str = str(BASE_DIR / "uploads")
 
     # Retrieval: number of chunks returned per query
     retrieval_k: int = 4

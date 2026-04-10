@@ -165,8 +165,8 @@ doc-assistant
 ├─ config
 │  ├─ settings.py
 │  └─ __init__.py
+├─ raw                  (sample documents for testing)
 ├─ tests
-│  ├─ sample_docs       (27 sample documents for testing)
 │  ├─ conftest.py
 │  ├─ test_api.py
 │  ├─ test_ingestion.py
