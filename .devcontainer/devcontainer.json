@@ -1,0 +1,15 @@
+{
+  "name": "doc-assistant",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  // Install deps and pre-download the embedding model so first query is instant
+  "postCreateCommand": "pip install -r requirements.txt && python -c \"from langchain_huggingface import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')\"",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "FastAPI",
+      // Public so iPad can reach the URL without signing into GitHub
+      "visibility": "public"
+    }
+  },
+  "secrets": ["ANTHROPIC_API_KEY"]
+}
