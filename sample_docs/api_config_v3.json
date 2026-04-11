@@ -1,0 +1,47 @@
+{
+  "api_version": "3.2.1",
+  "company": "台灣科技集團股份有限公司",
+  "base_url": "https://api.twtech.com.tw/v3",
+  "auth": {
+    "type": "oauth2",
+    "token_url": "https://auth.twtech.com.tw/oauth/token",
+    "scopes": [
+      "read",
+      "write",
+      "admin"
+    ],
+    "token_expiry_seconds": 3600
+  },
+  "rate_limits": {
+    "default_rpm": 120,
+    "burst": 20,
+    "enterprise_rpm": 1000
+  },
+  "endpoints": [
+    {
+      "name": "documents.list",
+      "method": "GET",
+      "path": "/documents",
+      "auth_required": true
+    },
+    {
+      "name": "documents.upload",
+      "method": "POST",
+      "path": "/documents/upload",
+      "auth_required": true
+    },
+    {
+      "name": "query.ask",
+      "method": "POST",
+      "path": "/query",
+      "auth_required": true
+    },
+    {
+      "name": "health",
+      "method": "GET",
+      "path": "/health",
+      "auth_required": false
+    }
+  ],
+  "updated_at": "2025-04-01T00:00:00+08:00"
+}

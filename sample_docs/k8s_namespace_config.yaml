@@ -1,0 +1,78 @@
+cluster: twtech-prod-eks
+region: ap-northeast-1
+namespaces:
+- name: platform-api
+  team: platform-team
+  tier: production
+  resource_quota:
+    requests.cpu: '20'
+    requests.memory: 40Gi
+    limits.cpu: '40'
+    limits.memory: 80Gi
+    pods: '50'
+    services: '20'
+    persistentvolumeclaims: '10'
+  network_policies:
+  - deny-all-ingress
+  - allow-internal-services
+  - allow-monitoring
+  image_pull_secrets:
+  - twtech-registry-cred
+- name: ai-services
+  team: ai-platform-team
+  tier: production
+  resource_quota:
+    requests.cpu: '32'
+    requests.memory: 128Gi
+    limits.cpu: '64'
+    limits.memory: 256Gi
+    pods: '30'
+    services: '10'
+    persistentvolumeclaims: '20'
+  network_policies:
+  - deny-all-ingress
+  - allow-internal-services
+  - allow-monitoring
+  image_pull_secrets:
+  - twtech-registry-cred
+  node_selector:
+    node.kubernetes.io/instance-type: g5.2xlarge
+- name: data-pipeline
+  team: data-engineering
+  tier: production
+  resource_quota:
+    requests.cpu: '16'
+    requests.memory: 64Gi
+    limits.cpu: '32'
+    limits.memory: 128Gi
+    pods: '40'
+    services: '15'
+    persistentvolumeclaims: '30'
+  network_policies:
+  - deny-all-ingress
+  - allow-internal-services
+  - allow-monitoring
+  image_pull_secrets:
+  - twtech-registry-cred
+- name: monitoring
+  team: sre-team
+  tier: infrastructure
+  resource_quota:
+    requests.cpu: '8'
+    requests.memory: 32Gi
+    limits.cpu: '16'
+    limits.memory: 64Gi
+    pods: '30'
+    services: '20'
+    persistentvolumeclaims: '15'
+  network_policies:
+  - allow-all-ingress-from-cluster
+  image_pull_secrets:
+  - twtech-registry-cred
+cluster_policies:
+  pod_security_standard: restricted
+  image_registry_whitelist:
+  - twtech-registry.azurecr.io
+  - public.ecr.aws
+  - docker.io/library
+  audit_log_retention_days: 90

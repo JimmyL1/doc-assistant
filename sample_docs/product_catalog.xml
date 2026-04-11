@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog company="台灣科技集團股份有限公司" updated="2025-04-01">
+  <product id="TOS-STD">
+    <name>TaiwanOS Standard</name>
+    <description>適合中小型企業的入門授權方案</description>
+    <nodes>10</nodes>
+    <price currency="NTD">120000</price>
+    <support_level>Business</support_level>
+    <features>
+      <feature>零信任網路存取</feature>
+      <feature>集中式日誌管理</feature>
+      <feature>自動安全更新</feature>
+    </features>
+  </product>
+  <product id="TOS-PRO">
+    <name>TaiwanOS Professional</name>
+    <description>適合成長型企業，提供進階管理功能</description>
+    <nodes>50</nodes>
+    <price currency="NTD">480000</price>
+    <support_level>Priority</support_level>
+    <features>
+      <feature>全功能 SIEM 整合</feature>
+      <feature>AI 威脅偵測</feature>
+      <feature>多雲端部署</feature>
+      <feature>進階 RBAC 管理</feature>
+    </features>
+  </product>
+  <product id="TOS-ENT">
+    <name>TaiwanOS Enterprise</name>
+    <description>無限節點授權，適合大型企業與政府機關</description>
+    <nodes>unlimited</nodes>
+    <price currency="NTD">contact_sales</price>
+    <support_level>Platinum 24/7</support_level>
+    <features>
+      <feature>專屬客戶成功經理</feature>
+      <feature>現場部署支援</feature>
+      <feature>客製化安全政策</feature>
+      <feature>SLA 99.99%</feature>
+    </features>
+  </product>
+</catalog>

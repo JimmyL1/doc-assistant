@@ -1,0 +1,54 @@
+app:
+  name: twtech-platform-api
+  version: 3.7.2
+  environment: production
+  region: ap-northeast-1
+  owner: platform-team@twtech.com.tw
+build:
+  image: twtech-registry.azurecr.io/platform-api:3.7.2
+  base_image: python:3.12-slim
+  build_args:
+    APP_ENV: production
+    LOG_LEVEL: INFO
+resources:
+  replicas: 4
+  cpu_request: 500m
+  cpu_limit: 2000m
+  memory_request: 512Mi
+  memory_limit: 2Gi
+  autoscaling:
+    enabled: true
+    min_replicas: 2
+    max_replicas: 12
+    target_cpu_utilization: 70
+networking:
+  service_port: 8000
+  health_check_path: /api/v1/health
+  ingress:
+    enabled: true
+    host: api.twtech.com.tw
+    tls: true
+    cert_issuer: letsencrypt-prod
+environment_variables:
+  DATABASE_URL: ${SECRET_DATABASE_URL}
+  REDIS_URL: redis://redis-cluster.internal:6379/0
+  ANTHROPIC_API_KEY: ${SECRET_ANTHROPIC_API_KEY}
+  JWT_SECRET: ${SECRET_JWT_KEY}
+  CORS_ORIGINS: https://app.twtech.com.tw,https://admin.twtech.com.tw
+  MAX_UPLOAD_SIZE_MB: '50'
+  VECTOR_STORE_PATH: /data/chroma_db
+persistent_volumes:
+- name: chroma-data
+  mount_path: /data/chroma_db
+  size: 50Gi
+  storage_class: ssd-premium
+- name: upload-cache
+  mount_path: /tmp/uploads
+  size: 10Gi
+  storage_class: standard
+deployment:
+  strategy: RollingUpdate
+  max_surge: 1
+  max_unavailable: 0
+  readiness_probe_delay: 15
+  liveness_probe_delay: 30

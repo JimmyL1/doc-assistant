@@ -1,0 +1,52 @@
+{
+  "product": "TaiwanOS",
+  "version": "5.2.1",
+  "period": "2025-Q1",
+  "metrics": {
+    "active_nodes": 12840,
+    "avg_uptime_pct": 99.97,
+    "crash_reports": 23,
+    "auto_updates_applied": 8921,
+    "security_events_blocked": 1547
+  },
+  "top_features_used": [
+    {
+      "feature": "VPN Gateway",
+      "usage_pct": 94.2
+    },
+    {
+      "feature": "MFA Login",
+      "usage_pct": 88.7
+    },
+    {
+      "feature": "Dashboard",
+      "usage_pct": 76.3
+    },
+    {
+      "feature": "Log Viewer",
+      "usage_pct": 61.0
+    },
+    {
+      "feature": "AI Assistant",
+      "usage_pct": 42.8
+    }
+  ],
+  "error_codes": [
+    {
+      "code": "NET-001",
+      "description": "DNS 解析失敗",
+      "count": 8
+    },
+    {
+      "code": "AUTH-003",
+      "description": "Token 過期",
+      "count": 12
+    },
+    {
+      "code": "DISK-002",
+      "description": "磁碟空間不足",
+      "count": 3
+    }
+  ],
+  "generated_at": "2025-04-01T08:00:00+08:00"
+}

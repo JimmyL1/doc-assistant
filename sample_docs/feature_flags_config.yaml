@@ -1,0 +1,61 @@
+version: 2025-Q2
+last_updated: '2025-04-01'
+updated_by: platform-team
+feature_flags:
+  rag_v2_langgraph_agent:
+    enabled: false
+    description: LangGraph-based agentic RAG pipeline (v2 architecture)
+    rollout_percentage: 0
+    target_groups: []
+    owner: ai-platform-team
+    ticket: PLAT-2041
+    planned_ga: 2025-Q3
+  multi_modal_image_qa:
+    enabled: true
+    description: Allow image uploads to be queried via Claude vision
+    rollout_percentage: 100
+    target_groups:
+    - all
+    owner: ai-platform-team
+    ticket: PLAT-1988
+    planned_ga: GA
+  streaming_response:
+    enabled: true
+    description: Stream LLM tokens to client via SSE
+    rollout_percentage: 50
+    target_groups:
+    - beta-users
+    - enterprise-tier
+    owner: backend-team
+    ticket: PLAT-2055
+    planned_ga: 2025-Q2
+  document_collections:
+    enabled: false
+    description: Allow users to organize documents into named collections for scoped
+      RAG
+    rollout_percentage: 0
+    target_groups: []
+    owner: product-team
+    ticket: PLAT-2102
+    planned_ga: 2025-Q3
+  sso_saml_integration:
+    enabled: true
+    description: Enterprise SSO via SAML 2.0
+    rollout_percentage: 100
+    target_groups:
+    - enterprise-tier
+    owner: auth-team
+    ticket: PLAT-1901
+    planned_ga: GA
+  audit_log_export:
+    enabled: false
+    description: Export audit logs to customer S3 bucket
+    rollout_percentage: 0
+    target_groups: []
+    owner: compliance-team
+    ticket: PLAT-2118
+    planned_ga: 2025-Q4
+kill_switches:
+  disable_all_ingestion: false
+  disable_llm_calls: false
+  read_only_mode: false

@@ -1,0 +1,81 @@
+name: Platform API CI/CD
+'on':
+  push:
+    branches:
+    - main
+    - release/*
+  pull_request:
+    branches:
+    - main
+env:
+  REGISTRY: twtech-registry.azurecr.io
+  IMAGE_NAME: platform-api
+  PYTHON_VERSION: '3.12'
+jobs:
+  lint-and-test:
+    name: Lint and Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    - name: Install dependencies
+      run: pip install -r requirements.txt -r requirements-dev.txt
+    - name: Run ruff lint
+      run: ruff check . --output-format=github
+    - name: Run mypy
+      run: mypy app/ --ignore-missing-imports
+    - name: Run pytest
+      run: pytest tests/ -v --cov=app --cov-report=xml
+    - name: Upload coverage
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./coverage.xml
+        flags: unittests
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    if: github.event_name == 'push'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Azure Container Registry Login
+      uses: azure/docker-login@v2
+      with:
+        login-server: ${{ env.REGISTRY }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }},${{ env.REGISTRY
+          }}/${{ env.IMAGE_NAME }}:latest
+        cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
+        cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    steps:
+    - uses: actions/checkout@v4
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-1
+    - name: Update kubeconfig
+      run: aws eks update-kubeconfig --name twtech-prod-eks --region ap-northeast-1
+    - name: Deploy via ArgoCD
+      run: argocd app set platform-api --helm-set image.tag=${{ github.sha }} && argocd
+        app sync platform-api --wait
+      env:
+        ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+    - name: Run smoke tests
+      run: pytest tests/smoke/ -v --base-url https://api.twtech.com.tw

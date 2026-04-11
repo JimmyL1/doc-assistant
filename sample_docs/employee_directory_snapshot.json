@@ -1,0 +1,86 @@
+{
+  "company": "台灣科技集團股份有限公司",
+  "export_date": "2025-04-09",
+  "total_count": 265,
+  "departments": [
+    {
+      "id": "ENG",
+      "name": "工程部",
+      "head": "林志遠",
+      "headcount": 98
+    },
+    {
+      "id": "PMO",
+      "name": "產品管理",
+      "head": "黃雅婷",
+      "headcount": 22
+    },
+    {
+      "id": "SALES",
+      "name": "業務部",
+      "head": "陳俊男",
+      "headcount": 45
+    },
+    {
+      "id": "HR",
+      "name": "人力資源",
+      "head": "吳淑芬",
+      "headcount": 18
+    },
+    {
+      "id": "FIN",
+      "name": "財務部",
+      "head": "劉柏宏",
+      "headcount": 15
+    },
+    {
+      "id": "MKTG",
+      "name": "行銷部",
+      "head": "蔡雨潔",
+      "headcount": 27
+    },
+    {
+      "id": "OPS",
+      "name": "營運部",
+      "head": "張國棟",
+      "headcount": 40
+    }
+  ],
+  "employees": [
+    {
+      "id": "E001",
+      "name": "陳建宏",
+      "title": "董事長",
+      "dept": "EXEC",
+      "email": "ceo@twtech.com.tw"
+    },
+    {
+      "id": "E002",
+      "name": "林志遠",
+      "title": "技術長",
+      "dept": "ENG",
+      "email": "cto@twtech.com.tw"
+    },
+    {
+      "id": "E003",
+      "name": "黃雅婷",
+      "title": "產品長",
+      "dept": "PMO",
+      "email": "cpo@twtech.com.tw"
+    },
+    {
+      "id": "E045",
+      "name": "王大明",
+      "title": "資深後端工程師",
+      "dept": "ENG",
+      "email": "wang.dm@twtech.com.tw"
+    },
+    {
+      "id": "E089",
+      "name": "李小花",
+      "title": "AI 研究員",
+      "dept": "ENG",
+      "email": "li.xh@twtech.com.tw"
+    }
+  ]
+}

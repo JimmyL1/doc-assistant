@@ -1,0 +1,76 @@
+alert_group: twtech-platform-production
+notification_channels:
+  pagerduty:
+    enabled: true
+    service_key: ${SECRET_PAGERDUTY_KEY}
+    escalation_policy: platform-oncall
+  slack:
+    enabled: true
+    channel: '#alerts-production'
+    webhook: ${SECRET_SLACK_WEBHOOK}
+  email:
+    enabled: true
+    recipients:
+    - oncall@twtech.com.tw
+    - platform-lead@twtech.com.tw
+rules:
+- name: HighAPILatency
+  severity: critical
+  condition: p99_latency_ms > 2000
+  window: 5m
+  description: API p99 latency exceeded 2000ms for 5 minutes
+  runbook: https://wiki.twtech.internal/runbooks/high-latency
+  notify:
+  - pagerduty
+  - slack
+- name: HighErrorRate
+  severity: critical
+  condition: error_rate_5xx > 0.05
+  window: 3m
+  description: 5xx error rate above 5% for 3 minutes
+  runbook: https://wiki.twtech.internal/runbooks/high-error-rate
+  notify:
+  - pagerduty
+  - slack
+- name: VectorStoreQuerySlow
+  severity: warning
+  condition: chroma_query_p95_ms > 800
+  window: 10m
+  description: Vector store query p95 above 800ms
+  runbook: https://wiki.twtech.internal/runbooks/vector-store-perf
+  notify:
+  - slack
+- name: DiskUsageHigh
+  severity: warning
+  condition: disk_used_percent > 80
+  window: 15m
+  description: Persistent volume disk usage above 80%
+  runbook: https://wiki.twtech.internal/runbooks/disk-cleanup
+  notify:
+  - slack
+  - email
+- name: PodCrashLooping
+  severity: critical
+  condition: pod_restart_count > 5
+  window: 15m
+  description: Pod has restarted more than 5 times in 15 minutes
+  runbook: https://wiki.twtech.internal/runbooks/crashloop
+  notify:
+  - pagerduty
+  - slack
+- name: LLMTokenBudgetWarning
+  severity: warning
+  condition: daily_token_spend_usd > 400
+  window: 1h
+  description: Daily LLM token spend exceeding $400 threshold
+  runbook: https://wiki.twtech.internal/runbooks/llm-cost
+  notify:
+  - slack
+  - email
+inhibit_rules:
+- source_match:
+    severity: critical
+  target_match:
+    severity: warning
+  equal:
+  - alertname

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<security_policy version="3.1" company="台灣科技集團股份有限公司" effective_date="2025-01-01">
+  <password_policy>
+    <min_length>12</min_length>
+    <require_uppercase>true</require_uppercase>
+    <require_number>true</require_number>
+    <require_symbol>true</require_symbol>
+    <max_age_days>90</max_age_days>
+    <history_count>12</history_count>
+    <lockout_attempts>5</lockout_attempts>
+    <lockout_duration_minutes>30</lockout_duration_minutes>
+  </password_policy>
+  <mfa_policy>
+    <required>true</required>
+    <allowed_methods>
+      <method>TOTP</method>
+      <method>FIDO2</method>
+      <method>SMS</method>
+    </allowed_methods>
+    <grace_period_days>7</grace_period_days>
+  </mfa_policy>
+  <network_policy>
+    <vpn_required_for_remote>true</vpn_required_for_remote>
+    <allowed_cidrs>
+      <cidr>10.0.0.0/8</cidr>
+      <cidr>172.16.0.0/12</cidr>
+    </allowed_cidrs>
+    <block_torrent>true</block_torrent>
+    <dns_filtering>true</dns_filtering>
+  </network_policy>
+  <audit_policy>
+    <log_retention_days>365</log_retention_days>
+    <privileged_access_logging>true</privileged_access_logging>
+    <alert_on_admin_login>true</alert_on_admin_login>
+  </audit_policy>
+</security_policy>

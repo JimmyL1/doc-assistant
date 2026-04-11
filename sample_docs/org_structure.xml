@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization name="台灣科技集團股份有限公司" established="2018" employees="265">
+  <executive>
+    <member title="董事長兼執行長" name="陳建宏" email="ceo@twtech.com.tw"/>
+    <member title="技術長" name="林志遠" email="cto@twtech.com.tw"/>
+    <member title="產品長" name="黃雅婷" email="cpo@twtech.com.tw"/>
+    <member title="財務長" name="劉柏宏" email="cfo@twtech.com.tw"/>
+  </executive>
+  <department id="ENG" name="工程部" headcount="98" head="林志遠">
+    <team name="平台工程" headcount="32"/>
+    <team name="AI 研究" headcount="18"/>
+    <team name="安全工程" headcount="20"/>
+    <team name="DevOps" headcount="15"/>
+    <team name="QA" headcount="13"/>
+  </department>
+  <department id="SALES" name="業務部" headcount="45" head="陳俊男">
+    <team name="企業業務" headcount="20"/>
+    <team name="政府業務" headcount="10"/>
+    <team name="客戶成功" headcount="15"/>
+  </department>
+  <department id="HR" name="人力資源" headcount="18" head="吳淑芬">
+    <team name="招募" headcount="8"/>
+    <team name="人才發展" headcount="10"/>
+  </department>
+</organization>

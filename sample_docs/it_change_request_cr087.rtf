@@ -1,0 +1,40 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+\f0\fs24
+IT Change Request Form\par
+Document No.: IT-CR-2025-087\par
+Version: 1.0 | Classification: Internal\par
+\par
+Section 1: Change Identification\par
+Change Title: Upgrade Core Banking Middleware to v4.2\par
+Requested By: Lin Chih-Hao (CIO Office)\par
+Date Submitted: 2025-03-10\par
+Target Implementation Date: 2025-04-05\par
+Change Category: Major\par
+Priority: High\par
+\par
+Section 2: Description of Change\par
+Current State: The core banking middleware is running version 3.8.1, which reaches end-of-life on 2025-06-30. Performance benchmarks show average API latency of 320ms under peak load.\par
+Proposed Change: Upgrade to middleware v4.2, which includes async processing support, connection pool improvements, and TLS 1.3 enforcement.\par
+Business Justification: Compliance with security policy SEC-2024-11 (TLS 1.2 deprecation). Projected latency improvement to 180ms, supporting Q3 transaction volume growth.\par
+\par
+Section 3: Risk Assessment\par
+Risk Level: Medium\par
+Key Risks:\par
+- Config schema changes between v3.8 and v4.2 require migration script\par
+- 15-minute planned downtime window required during deployment\par
+- Third-party payment gateway adapter needs re-certification (vendor scheduled 2025-03-28)\par
+Rollback Plan: Snapshot taken 2 hours prior; rollback via Ansible playbook (~8 min). Rollback window: 4 hours post-deployment.\par
+\par
+Section 4: Implementation Plan\par
+Step 1: Deploy to staging and run regression suite (2025-03-22)\par
+Step 2: Payment gateway adapter re-certification with vendor (2025-03-28)\par
+Step 3: CAB approval meeting (2025-04-01)\par
+Step 4: Production deployment during maintenance window Sat 02:00-04:00 (2025-04-05)\par
+Step 5: Smoke test and sign-off by app owner (2025-04-05 04:30)\par
+\par
+Section 5: Approvals\par
+IT Manager: Chen Mei-Ling | Approved | 2025-03-12\par
+Security Officer: Wang Chien-Hao | Approved | 2025-03-13\par
+CAB Chair: Pending (scheduled 2025-04-01)
+}

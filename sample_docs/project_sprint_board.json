@@ -1,0 +1,52 @@
+{
+  "project": "TaiwanOS 5.3",
+  "sprint": 12,
+  "sprint_goal": "完成 AI 助理 v2 beta 與效能優化",
+  "start_date": "2025-04-07",
+  "end_date": "2025-04-18",
+  "velocity": 42,
+  "stories": [
+    {
+      "id": "TWO-812",
+      "title": "AI 問答支援多輪對話",
+      "points": 8,
+      "status": "in_progress",
+      "assignee": "李小花"
+    },
+    {
+      "id": "TWO-815",
+      "title": "向量搜尋效能優化 (k-NN index)",
+      "points": 5,
+      "status": "done",
+      "assignee": "王大明"
+    },
+    {
+      "id": "TWO-820",
+      "title": "支援 XLSX 文件解析",
+      "points": 3,
+      "status": "done",
+      "assignee": "陳志明"
+    },
+    {
+      "id": "TWO-823",
+      "title": "管理後台 RBAC 角色設計",
+      "points": 8,
+      "status": "todo",
+      "assignee": "蔡雨潔"
+    },
+    {
+      "id": "TWO-831",
+      "title": "API 回應壓縮 (Brotli)",
+      "points": 3,
+      "status": "todo",
+      "assignee": "王大明"
+    },
+    {
+      "id": "TWO-835",
+      "title": "單元測試覆蓋率提升至 85%",
+      "points": 5,
+      "status": "in_progress",
+      "assignee": "林志遠"
+    }
+  ]
+}

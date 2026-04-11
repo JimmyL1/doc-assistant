@@ -1,0 +1,29 @@
+From: =?utf-8?b?SVQg5a6J5YWo5ZyY6ZqKIDxzZWN1cml0eUB0d3RlY2guY29tLnR3Pg==?=
+To: =?utf-8?b?5YWo6auU5ZOh5belIDxhbGxAdHd0ZWNoLmNvbS50dz47IElU6YOo6ZaAIDxpdEB0d3RlY2guY29tLnR3Pg==?=
+Subject: =?utf-8?b?W+e3iuaApV0g6Yej6a2a6YO15Lu25pS75pOK6K2m5aCxIOKAlCDoq4vli7/pu57mk4rlj6/nlpHpgKPntZA=?=
+Date: Wed, 09 Apr 2025 10:00:00 +0800
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+全體同仁，
+
+IT 安全團隊偵測到針對 台灣科技集團股份有限公司 員工的定向釣魚攻擊（spear-phishing）活動。
+攻擊者偽裝成「人力資源部」寄送假冒薪資調整通知，郵件主旨通常為：
+
+  「[人資] 您的 2025 年度薪資調整通知（請確認）」
+
+請注意以下識別特徵：
+1. 寄件者顯示名稱可能正常，但實際電子郵件地址來自 gmail.com 或其他公開郵件服務
+2. 點擊後會要求輸入 Microsoft 365 帳號密碼
+3. 郵件附件為 .html 或 .htm 檔案
+
+立即行動：
+□ 若已點擊連結或輸入密碼，請立即聯繫 IT 服務台（分機 1234）
+□ 請透過公司通訊錄確認寄件人身份再開啟附件
+□ 可疑郵件請轉寄至 phishing-report@twtech.com.tw
+
+感謝您的配合，資安從每個人開始。
+
+IT 安全團隊
+台灣科技集團股份有限公司

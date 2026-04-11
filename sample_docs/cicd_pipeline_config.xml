@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline name="TaiwanOS-Main" project="台灣科技集團股份有限公司" tool="Jenkins" version="2.440">
+  <triggers>
+    <trigger type="git_push" branch="main"/>
+    <trigger type="schedule" cron="0 2 * * 1-5" label="夜間整合測試"/>
+  </triggers>
+  <stages>
+    <stage name="Checkout" parallel="false">
+      <step>git checkout $GIT_BRANCH</step>
+    </stage>
+    <stage name="Build" parallel="true">
+      <step>make build-api</step>
+      <step>make build-frontend</step>
+    </stage>
+    <stage name="Test" parallel="false">
+      <step timeout_min="30">pytest tests/ -v --cov=app --cov-report=xml</step>
+      <step timeout_min="10">npx eslint . --max-warnings=0</step>
+    </stage>
+    <stage name="Security Scan" parallel="true">
+      <step>trivy image twtech/taiwanos:$BUILD_NUMBER</step>
+      <step>bandit -r app/ -ll</step>
+    </stage>
+    <stage name="Deploy Staging" parallel="false" condition="branch==main">
+      <step>kubectl apply -f k8s/staging/</step>
+      <step>kubectl rollout status deployment/api -n staging</step>
+    </stage>
+    <stage name="Deploy Prod" parallel="false" condition="manual_approval">
+      <step>kubectl apply -f k8s/prod/</step>
+      <step>kubectl rollout status deployment/api -n prod</step>
+    </stage>
+  </stages>
+  <notifications>
+    <notify on="failure" channel="slack:#cicd-alerts"/>
+    <notify on="success" channel="slack:#deployments"/>
+  </notifications>
+</pipeline>

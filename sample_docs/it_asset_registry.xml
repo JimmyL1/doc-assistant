@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assets company="台灣科技集團股份有限公司" exported="2025-04-09">
+  <asset id="SRV-001">
+    <type>Server</type>
+    <hostname>twtech-prod-api-01</hostname>
+    <ip>10.0.1.10</ip>
+    <os>TaiwanOS 5.2.1</os>
+    <cpu>Intel Xeon Gold 6338 x2</cpu>
+    <ram_gb>256</ram_gb>
+    <storage_tb>10</storage_tb>
+    <location>台北機房 Rack-A3</location>
+    <owner>工程部</owner>
+    <status>active</status>
+  </asset>
+  <asset id="SRV-002">
+    <type>Server</type>
+    <hostname>twtech-prod-db-01</hostname>
+    <ip>10.0.1.20</ip>
+    <os>TaiwanOS 5.2.1</os>
+    <cpu>AMD EPYC 7443 x2</cpu>
+    <ram_gb>512</ram_gb>
+    <storage_tb>40</storage_tb>
+    <location>台北機房 Rack-B1</location>
+    <owner>工程部</owner>
+    <status>active</status>
+  </asset>
+  <asset id="NB-045">
+    <type>Notebook</type>
+    <hostname>twtech-nb-e045</hostname>
+    <ip>dhcp</ip>
+    <os>Windows 11 Enterprise</os>
+    <model>Dell Latitude 5540</model>
+    <assigned_to>王大明 (E045)</assigned_to>
+    <location>台北辦公室</location>
+    <owner>IT 部門</owner>
+    <status>active</status>
+  </asset>
+</assets>

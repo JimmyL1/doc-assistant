@@ -1,0 +1,61 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+\f0\fs24
+Project Charter\par
+Project Name: E-Commerce Platform Re-architecture (Project Phoenix)\par
+Document ID: PMO-CHARTER-2025-012\par
+Version: 1.0 | Status: Approved | Date: 2025-02-15\par
+\par
+1. Project Overview\par
+Project Phoenix is a strategic initiative to re-architect the legacy e-commerce platform\par
+(deployed 2018) to a cloud-native microservices architecture on AWS. The current monolith\par
+experiences 23% cart abandonment during peak flash sales due to checkout service bottlenecks,\par
+and cannot support the planned Southeast Asia market expansion.\par
+\par
+2. Business Case\par
+Problem: Legacy platform cannot scale beyond 8,000 concurrent users; the Q4 2024 flash sale\par
+generated NT$2.3M in lost revenue due to checkout timeouts.\par
+Opportunity: Cloud-native architecture will support 100,000+ concurrent users, enable\par
+independent deployment of 14 services, and reduce infrastructure cost by ~35%.\par
+Strategic Alignment: Supports 2025 OKR \u8212? "Achieve 99.95% checkout availability".\par
+\par
+3. Scope\par
+In Scope:\par
+- Decompose monolith into 14 microservices (product catalog, cart, checkout, payment, etc.)\par
+- Migrate database from Oracle 12c to Amazon Aurora PostgreSQL\par
+- Implement API Gateway and service mesh (AWS App Mesh)\par
+- Build CI/CD pipelines for all services (GitHub Actions + ArgoCD)\par
+- Data migration with zero customer data loss\par
+Out of Scope:\par
+- Mobile app redesign (separate initiative)\par
+- ERP integration (Phase 2, Q4 2025)\par
+\par
+4. Milestones\par
+M1: Architecture design and ADRs approved \u8212? 2025-03-31\par
+M2: Core services (product, cart, auth) in staging \u8212? 2025-06-30\par
+M3: Full platform in staging, load test passed (100K concurrent) \u8212? 2025-09-15\par
+M4: Phased production cutover complete \u8212? 2025-11-01\par
+M5: Legacy decommission \u8212? 2026-01-31\par
+\par
+5. Budget\par
+Total Approved Budget: NT$28,500,000\par
+- Personnel (internal + contractors): NT$18,000,000\par
+- Cloud infrastructure (AWS): NT$6,500,000\par
+- Software licenses and tooling: NT$2,000,000\par
+- Training and certification: NT$800,000\par
+- Contingency (7%): NT$1,200,000\par
+\par
+6. Risks\par
+R1 (High): Oracle-to-Aurora data migration complexity \u8212? mitigation: engage AWS ProServe\par
+R2 (Medium): Key engineer availability conflicts with Q2 product deadlines\par
+R3 (Medium): Third-party payment PSP API compatibility during cutover\par
+\par
+7. Governance\par
+Project Sponsor: CEO Chen Chien-Hung\par
+Project Manager: Chang Wei-Ting (PMO)\par
+Technical Lead: Huang Chih-Feng (Principal Engineer)\par
+Steering Committee: CTO, CIO, CFO \u8212? monthly review\par
+\par
+Approved by: CEO Chen Chien-Hung  Date: 2025-02-15\par
+Approved by: CTO Lin Chih-Yuan  Date: 2025-02-15
+}

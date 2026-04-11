@@ -1,0 +1,34 @@
+From: =?utf-8?b?SVQg6YGL57at5ZyY6ZqKIDxvcHNAdHd0ZWNoLmNvbS50dz4=?=
+To: =?utf-8?b?5YWo6auU5ZOh5belIDxhbGxAdHd0ZWNoLmNvbS50dz4=?=
+Subject: =?utf-8?b?W+WFrOWRil0gMjAyNS8wNC8xMiAo5YWtKSDns7vntbHntq3orbfpgJrnn6Ug4oCUIOmDqOWIhuacjeWLmeS4reaWtw==?=
+Date: Wed, 09 Apr 2025 10:00:00 +0800
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+各位同仁，
+
+IT 運維團隊預定於本週六（2025年4月12日）00:00 至 06:00 進行例行性系統維護，
+維護期間以下服務將暫停或降級：
+
+完全中斷（00:00–04:00）：
+- VPN 連線（WireGuard Gateway）
+- 內部 GitLab（代碼提交/CI/CD）
+- TaiwanOS 更新伺服器
+
+降級（回應時間可能延長）：
+- 客戶入口網站 portal.twtech.com.tw
+- AI 助理服務（僅唯讀模式）
+
+不受影響：
+- 公司官網
+- 對外 API（生產環境）
+- 電子郵件
+
+維護完成後將寄送恢復通知。如有緊急需求，請聯繫值班工程師：
+  緊急聯絡：+886-912-345-678（24小時值班）
+
+感謝您的諒解與配合。
+
+IT 運維團隊
+台灣科技集團股份有限公司

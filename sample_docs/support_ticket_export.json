@@ -1,0 +1,42 @@
+{
+  "export_date": "2025-04-09",
+  "company": "台灣科技集團股份有限公司",
+  "tickets": [
+    {
+      "id": "TKT-20250401-001",
+      "subject": "VPN 連線中斷",
+      "priority": "high",
+      "status": "resolved",
+      "category": "network",
+      "created_by": "王大明",
+      "assigned_to": "IT服務台-李明",
+      "created_at": "2025-04-01T09:15:00+08:00",
+      "resolved_at": "2025-04-01T10:30:00+08:00",
+      "description": "員工反映 VPN 無法連線，經排查為 WireGuard 設定檔版本不符"
+    },
+    {
+      "id": "TKT-20250402-003",
+      "subject": "授權憑證申請",
+      "priority": "medium",
+      "status": "open",
+      "category": "licensing",
+      "created_by": "林小萍",
+      "assigned_to": "業務部-陳俊男",
+      "created_at": "2025-04-02T14:00:00+08:00",
+      "resolved_at": null,
+      "description": "客戶需申請 TaiwanOS Enterprise 新增 20 節點授權"
+    },
+    {
+      "id": "TKT-20250403-007",
+      "subject": "系統升級失敗",
+      "priority": "critical",
+      "status": "in_progress",
+      "category": "system",
+      "created_by": "張國棟",
+      "assigned_to": "工程部-王大明",
+      "created_at": "2025-04-03T08:45:00+08:00",
+      "resolved_at": null,
+      "description": "升級至 5.2.1 後 systemd 服務異常，正在排查 kernel module 相容性"
+    }
+  ]
+}
