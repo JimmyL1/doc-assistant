@@ -32,6 +32,6 @@ def test_query_after_upload(client):
 def test_upload_unsupported_type(client):
     resp = client.post(
         "/api/v1/upload",
-        files={"file": ("report.csv", b"col1,col2\n1,2", "text/csv")},
+        files={"file": ("report.xyz", b"some content", "application/octet-stream")},
     )
     assert resp.status_code == 422

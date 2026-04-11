@@ -12,7 +12,7 @@ class Settings(BaseSettings):
 
     # Embeddings
     embedding_provider: str = "huggingface"  # "huggingface" or "openai"
-    embedding_model: str = "all-MiniLM-L6-v2"
+    embedding_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
     # Vector store
     chroma_persist_dir: str = str(BASE_DIR / "chroma_db")

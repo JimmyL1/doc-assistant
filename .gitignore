@@ -22,8 +22,6 @@ build/
 .coverage
 htmlcov/
 
-chroma_db/*
-
 # Scripts (data generation, not needed for deployment)
 scripts/
 

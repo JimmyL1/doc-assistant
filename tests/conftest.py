@@ -14,4 +14,4 @@ def client():
 
 @pytest.fixture
 def sample_txt_path():
-    return TEST_DIR / "sample_docs" / "engineering_onboarding.txt"
+    return TEST_DIR.parent / "sample_docs" / "engineering_onboarding.txt"

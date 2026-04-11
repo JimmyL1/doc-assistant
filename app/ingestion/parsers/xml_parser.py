@@ -14,6 +14,10 @@ def parse_xml(file_path: str | Path) -> list[Document]:
             pieces.append(element.text.strip())
         if element.tail and element.tail.strip():
             pieces.append(element.tail.strip())
+        # Also capture attribute values for attribute-heavy XML (e.g. org charts)
+        for attr_val in element.attrib.values():
+            if attr_val.strip():
+                pieces.append(attr_val.strip())
 
     if not pieces:
         raise ValueError(f"No text content found in XML file: {file_path.name}")
